@@ -1,10 +1,10 @@
 
-# Implementation Plan: [FEATURE]
+# 구현 계획: [FEATURE]
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**브랜치**: `[###-feature-name]` | **날짜**: [DATE] | **명세**: [link]
+**입력**: `/specs/[###-feature-name]/spec.md`에서 기능 명세서
 
-## Execution Flow (/plan command scope)
+## 실행 흐름 (/plan 명령어 범위)
 ```
 1. Load feature spec from Input path
    → If not found: ERROR "No feature spec at {path}"
@@ -26,14 +26,14 @@
 9. STOP - Ready for /tasks command
 ```
 
-**IMPORTANT**: The /plan command STOPS at step 7. Phases 2-4 are executed by other commands:
-- Phase 2: /tasks command creates tasks.md
-- Phase 3-4: Implementation execution (manual or via tools)
+**중요**: /plan 명령어는 7단계에서 중단됩니다. 2-4단계는 다른 명령어로 실행됩니다:
+- 2단계: /tasks 명령어가 tasks.md를 생성
+- 3-4단계: 구현 실행 (수동 또는 도구를 통해)
 
-## Summary
-[Extract from feature spec: primary requirement + technical approach from research]
+## 요약
+[기능 명세에서 추출: 주요 요구사항 + 연구로부터의 기술적 접근법]
 
-## Technical Context
+## 기술적 컨텍스트
 **Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
 **Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
 **Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
@@ -44,14 +44,14 @@
 **Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
 **Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
 
-## Constitution Check
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+## 헌법 체크
+*게이트: 0단계 연구 전에 반드시 통과. 1단계 설계 후 재체크.*
 
-[Gates determined based on constitution file]
+[헌법 파일을 기반으로 결정된 게이트]
 
-## Project Structure
+## 프로젝트 구조
 
-### Documentation (this feature)
+### 문서화 (이 기능)
 ```
 specs/[###-feature]/
 ├── plan.md              # This file (/plan command output)
@@ -62,7 +62,7 @@ specs/[###-feature]/
 └── tasks.md             # Phase 2 output (/tasks command - NOT created by /plan)
 ```
 
-### Source Code (repository root)
+### 소스 코드 (저장소 루트)
 ```
 # Option 1: Single project (DEFAULT)
 src/
@@ -99,9 +99,9 @@ ios/ or android/
 └── [platform-specific structure]
 ```
 
-**Structure Decision**: [DEFAULT to Option 1 unless Technical Context indicates web/mobile app]
+**구조 결정**: [기술적 컨텍스트가 웹/모바일 앱을 나타내지 않는 한 옵션 1이 기본값]
 
-## Phase 0: Outline & Research
+## 0단계: 개요 및 연구
 1. **Extract unknowns from Technical Context** above:
    - For each NEEDS CLARIFICATION → research task
    - For each dependency → best practices task
@@ -120,10 +120,10 @@ ios/ or android/
    - Rationale: [why chosen]
    - Alternatives considered: [what else evaluated]
 
-**Output**: research.md with all NEEDS CLARIFICATION resolved
+**출력**: 모든 명확화 필요가 해결된 research.md
 
-## Phase 1: Design & Contracts
-*Prerequisites: research.md complete*
+## 1단계: 설계 및 계약
+*선행 요구사항: research.md 완료*
 
 1. **Extract entities from feature spec** → `data-model.md`:
    - Entity name, fields, relationships
@@ -152,10 +152,10 @@ ios/ or android/
    - Keep under 150 lines for token efficiency
    - Output to repository root
 
-**Output**: data-model.md, /contracts/*, failing tests, quickstart.md, agent-specific file
+**출력**: data-model.md, /contracts/*, 실패하는 테스트, quickstart.md, 에이전트별 파일
 
-## Phase 2: Task Planning Approach
-*This section describes what the /tasks command will do - DO NOT execute during /plan*
+## 2단계: 작업 계획 접근법
+*이 섹션은 /tasks 명령어가 수행할 내용을 설명 - /plan 중에는 실행하지 말 것*
 
 **Task Generation Strategy**:
 - Load `.specify/templates/tasks-template.md` as base
@@ -170,19 +170,19 @@ ios/ or android/
 - Dependency order: Models before services before UI
 - Mark [P] for parallel execution (independent files)
 
-**Estimated Output**: 25-30 numbered, ordered tasks in tasks.md
+**예상 출력**: tasks.md에 25-30개의 번호가 매겨진 순서대로 정렬된 작업
 
-**IMPORTANT**: This phase is executed by the /tasks command, NOT by /plan
+**중요**: 이 단계는 /tasks 명령어에 의해 실행되며, /plan에 의해 실행되지 않음
 
-## Phase 3+: Future Implementation
-*These phases are beyond the scope of the /plan command*
+## 3단계+: 향후 구현
+*이 단계들은 /plan 명령어의 범위를 벗어남*
 
 **Phase 3**: Task execution (/tasks command creates tasks.md)  
 **Phase 4**: Implementation (execute tasks.md following constitutional principles)  
 **Phase 5**: Validation (run tests, execute quickstart.md, performance validation)
 
-## Complexity Tracking
-*Fill ONLY if Constitution Check has violations that must be justified*
+## 복잡성 추적
+*헌법 체크에서 정당화되어야 할 위반사항이 있는 경우에만 작성*
 
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
@@ -190,22 +190,22 @@ ios/ or android/
 | [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
 
 
-## Progress Tracking
-*This checklist is updated during execution flow*
+## 진행 상황 추적
+*이 체크리스트는 실행 흐름 중에 업데이트됨*
 
-**Phase Status**:
-- [ ] Phase 0: Research complete (/plan command)
-- [ ] Phase 1: Design complete (/plan command)
-- [ ] Phase 2: Task planning complete (/plan command - describe approach only)
-- [ ] Phase 3: Tasks generated (/tasks command)
-- [ ] Phase 4: Implementation complete
-- [ ] Phase 5: Validation passed
+**단계 상태**:
+- [ ] 0단계: 연구 완료 (/plan 명령어)
+- [ ] 1단계: 설계 완료 (/plan 명령어)
+- [ ] 2단계: 작업 계획 완료 (/plan 명령어 - 접근법 설명만)
+- [ ] 3단계: 작업 생성됨 (/tasks 명령어)
+- [ ] 4단계: 구현 완료
+- [ ] 5단계: 검증 통과
 
-**Gate Status**:
-- [ ] Initial Constitution Check: PASS
-- [ ] Post-Design Constitution Check: PASS
-- [ ] All NEEDS CLARIFICATION resolved
-- [ ] Complexity deviations documented
+**게이트 상태**:
+- [ ] 초기 헌법 체크: 통과
+- [ ] 설계 후 헌법 체크: 통과
+- [ ] 모든 명확화 필요 해결됨
+- [ ] 복잡성 편차 문서화됨
 
 ---
-*Based on Constitution v2.1.1 - See `/memory/constitution.md`*
+*헌법 v2.1.1 기반 - `/memory/constitution.md` 참조*

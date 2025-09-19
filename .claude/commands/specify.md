@@ -1,13 +1,13 @@
 ---
-description: Create or update the feature specification from a natural language feature description.
+description: 자연어 기능 설명으로부터 기능 명세서를 생성하거나 업데이트합니다.
 ---
 
-Given the feature description provided as an argument, do this:
+인수로 제공된 기능 설명을 받아 다음을 수행하세요:
 
-1. Run the script `.specify/scripts/bash/create-new-feature.sh --json "$ARGUMENTS"` from repo root and parse its JSON output for BRANCH_NAME and SPEC_FILE. All file paths must be absolute.
-  **IMPORTANT** You must only ever run this script once. The JSON is provided in the terminal as output - always refer to it to get the actual content you're looking for.
-2. Load `.specify/templates/spec-template.md` to understand required sections.
-3. Write the specification to SPEC_FILE using the template structure, replacing placeholders with concrete details derived from the feature description (arguments) while preserving section order and headings.
-4. Report completion with branch name, spec file path, and readiness for the next phase.
+1. 저장소 루트에서 `.specify/scripts/bash/create-new-feature.sh --json "$ARGUMENTS"` 스크립트를 실행하고 BRANCH_NAME과 SPEC_FILE에 대한 JSON 출력을 파싱합니다. 모든 파일 경로는 절대경로여야 합니다.
+  **중요** 이 스크립트는 한 번만 실행해야 합니다. JSON은 터미널 출력으로 제공됩니다 - 찾고 있는 실제 내용을 얻기 위해 항상 이를 참조하세요.
+2. 필요한 섹션을 이해하기 위해 `.specify/templates/spec-template.md`를 로드합니다.
+3. 템플릿 구조를 사용하여 SPEC_FILE에 명세서를 작성하고, 섹션 순서와 제목을 유지하면서 기능 설명(인수)에서 파생된 구체적인 세부사항으로 플레이스홀더를 교체합니다.
+4. 브랜치 이름, 명세 파일 경로 및 다음 단계 준비 완료를 보고합니다.
 
-Note: The script creates and checks out the new branch and initializes the spec file before writing.
+참고: 스크립트는 새 브랜치를 생성하고 체크아웃한 다음 작성하기 전에 명세 파일을 초기화합니다.

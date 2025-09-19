@@ -1,8 +1,8 @@
 ---
-description: Execute the implementation planning workflow using the plan template to generate design artifacts.
+description: 계획 템플릿을 사용하여 구현 계획 워크플로를 실행하여 설계 산출물을 생성합니다.
 ---
 
-Given the implementation details provided as an argument, do this:
+인수로 제공된 구현 세부사항을 받아 다음을 수행하세요:
 
 1. Run `.specify/scripts/bash/setup-plan.sh --json` from the repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, SPECS_DIR, BRANCH. All future file paths must be absolute.
 2. Read and analyze the feature specification to understand:

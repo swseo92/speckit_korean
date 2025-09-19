@@ -45,9 +45,14 @@ git checkout -b "$BRANCH_NAME"
 FEATURE_DIR="$SPECS_DIR/$BRANCH_NAME"
 mkdir -p "$FEATURE_DIR"
 
-TEMPLATE="$REPO_ROOT/templates/spec-template.md"
+TEMPLATE="$REPO_ROOT/.specify/templates/spec-template.md"
 SPEC_FILE="$FEATURE_DIR/spec.md"
-if [ -f "$TEMPLATE" ]; then cp "$TEMPLATE" "$SPEC_FILE"; else touch "$SPEC_FILE"; fi
+if [ -f "$TEMPLATE" ]; then
+    # Use cat to preserve UTF-8 encoding instead of cp
+    cat "$TEMPLATE" > "$SPEC_FILE"
+else
+    touch "$SPEC_FILE"
+fi
 
 if $JSON_MODE; then
     printf '{"BRANCH_NAME":"%s","SPEC_FILE":"%s","FEATURE_NUM":"%s"}\n' "$BRANCH_NAME" "$SPEC_FILE" "$FEATURE_NUM"

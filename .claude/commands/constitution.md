@@ -1,15 +1,15 @@
 ---
-description: Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync.
-# (No scripts section: constitution edits are manual authoring assisted by the agent)
+description: 인터랙티브 또는 제공된 원칙 입력으로부터 프로젝트 헌법을 생성하거나 업데이트하여 모든 종속 템플릿이 동기화되도록 합니다.
+# (스크립트 섹션 없음: 헌법 편집은 에이전트의 도움을 받는 수동 작성)
 ---
 
-You are updating the project constitution at `.specify/memory/constitution.md`. This file is a TEMPLATE containing placeholder tokens in square brackets (e.g. `[PROJECT_NAME]`, `[PRINCIPLE_1_NAME]`). Your job is to (a) collect/derive concrete values, (b) fill the template precisely, and (c) propagate any amendments across dependent artifacts.
+`.specify/memory/constitution.md`에서 프로젝트 헌법을 업데이트하고 있습니다. 이 파일은 대괄호 안의 플레이스홀더 토큰을 포함하는 템플릿입니다(예: `[PROJECT_NAME]`, `[PRINCIPLE_1_NAME]`). 당신의 역할은 (a) 구체적인 값을 수집/도출하고, (b) 템플릿을 정확하게 작성하며, (c) 모든 수정사항을 종속 산물에 전파하는 것입니다.
 
-Follow this execution flow:
+다음 실행 흐름을 따르세요:
 
-1. Load the existing constitution template at `.specify/memory/constitution.md`.
-   - Identify every placeholder token of the form `[ALL_CAPS_IDENTIFIER]`.
-   **IMPORTANT**: The user might require less or more principles than the ones used in the template. If a number is specified, respect that - follow the general template. You will update the doc accordingly.
+1. `.specify/memory/constitution.md`에서 기존 헌법 템플릿을 로드합니다.
+   - `[ALL_CAPS_IDENTIFIER]` 형식의 모든 플레이스홀더 토큰을 식별합니다.
+   **중요**: 사용자는 템플릿에 사용된 것보다 적거나 많은 원칙을 요구할 수 있습니다. 숫자가 명시되면 이를 준수 - 일반 템플릿을 따르세요. 그에 따라 문서를 업데이트합니다.
 
 2. Collect/derive values for placeholders:
    - If user input (conversation) supplies a value, use it.

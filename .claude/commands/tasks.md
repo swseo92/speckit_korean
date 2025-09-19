@@ -1,8 +1,8 @@
 ---
-description: Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts.
+description: 사용 가능한 설계 산출물을 기반으로 기능에 대한 실행 가능하고 의존성이 정렬된 tasks.md를 생성합니다.
 ---
 
-Given the context provided as an argument, do this:
+인수로 제공된 컨텍스트를 받아 다음을 수행하세요:
 
 1. Run `.specify/scripts/bash/check-task-prerequisites.sh --json` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute.
 2. Load and analyze available design documents:

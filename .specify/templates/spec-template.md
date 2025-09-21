@@ -1,116 +1,116 @@
-# 기능 명세서: [FEATURE NAME]
+# Feature Specification: [FEATURE NAME]
 
-**기능 브랜치**: `[###-feature-name]`
-**생성일**: [DATE]
-**상태**: 초안
-**입력**: 사용자 설명: "$ARGUMENTS"
+**Feature Branch**: `[###-feature-name]`  
+**Created**: [DATE]  
+**Status**: Draft  
+**Input**: User description: "$ARGUMENTS"
 
-## 실행 흐름 (main)
+## Execution Flow (main)
 ```
-1. 입력에서 사용자 설명 파싱
-   → 비어있으면: ERROR "기능 설명이 제공되지 않음"
-2. 설명에서 핵심 개념 추출
-   → 식별: 액터, 액션, 데이터, 제약사항
-3. 불분명한 측면에 대해:
-   → [명확화 필요: 구체적 질문]으로 표시
-4. 사용자 시나리오 및 테스팅 섹션 작성
-   → 명확한 사용자 플로우가 없으면: ERROR "사용자 시나리오를 결정할 수 없음"
-5. 기능 요구사항 생성
-   → 각 요구사항은 테스트 가능해야 함
-   → 모호한 요구사항 표시
-6. 핵심 엔티티 식별 (데이터가 관련된 경우)
-7. 검토 체크리스트 실행
-   → [명확화 필요]가 있으면: WARN "명세에 불확실성 있음"
-   → 구현 세부사항이 발견되면: ERROR "기술 세부사항 제거"
-8. 반환: SUCCESS (계획 준비 완료)
+1. Parse user description from Input
+   → If empty: ERROR "No feature description provided"
+2. Extract key concepts from description
+   → Identify: actors, actions, data, constraints
+3. For each unclear aspect:
+   → Mark with [NEEDS CLARIFICATION: specific question]
+4. Fill User Scenarios & Testing section
+   → If no clear user flow: ERROR "Cannot determine user scenarios"
+5. Generate Functional Requirements
+   → Each requirement must be testable
+   → Mark ambiguous requirements
+6. Identify Key Entities (if data involved)
+7. Run Review Checklist
+   → If any [NEEDS CLARIFICATION]: WARN "Spec has uncertainties"
+   → If implementation details found: ERROR "Remove tech details"
+8. Return: SUCCESS (spec ready for planning)
 ```
 
 ---
 
-## ⚡ 빠른 가이드라인
-- ✅ 사용자가 무엇을 필요로 하고 왜 필요한지에 집중
-- ❌ 구현 방법 피하기 (기술 스택, API, 코드 구조 없음)
-- 👥 개발자가 아닌 비즈니스 이해관계자를 위해 작성
+## ⚡ Quick Guidelines
+- ✅ Focus on WHAT users need and WHY
+- ❌ Avoid HOW to implement (no tech stack, APIs, code structure)
+- 👥 Written for business stakeholders, not developers
 
-### 섹션 요구사항
-- **필수 섹션**: 모든 기능에 대해 완료되어야 함
-- **선택 섹션**: 기능과 관련이 있을 때만 포함
-- 섹션이 적용되지 않으면 완전히 제거 ("해당 없음"으로 두지 말 것)
+### Section Requirements
+- **Mandatory sections**: Must be completed for every feature
+- **Optional sections**: Include only when relevant to the feature
+- When a section doesn't apply, remove it entirely (don't leave as "N/A")
 
-### AI 생성용
-사용자 프롬프트로부터 이 명세를 생성할 때:
-1. **모든 모호함 표시**: 가정이 필요한 모든 것에 대해 [명확화 필요: 구체적 질문] 사용
-2. **추측하지 말 것**: 프롬프트가 무언가를 명시하지 않으면 (예: 인증 방법 없는 "로그인 시스템") 표시
-3. **테스터처럼 생각**: 모든 모호한 요구사항은 "테스트 가능하고 명확함" 체크리스트 항목에 실패해야 함
-4. **일반적인 불완전 명세 영역**:
-   - 사용자 유형 및 권한
-   - 데이터 보존/삭제 정책
-   - 성능 목표 및 규모
-   - 오류 처리 행동
-   - 통합 요구사항
-   - 보안/규정 준수 요구사항
-
----
-
-## 사용자 시나리오 및 테스팅 *(필수)*
-
-### 주요 사용자 스토리
-[주요 사용자 여정을 평이한 언어로 설명]
-
-### 승인 시나리오
-1. **주어진 조건** [초기 상태], **언제** [액션], **그러면** [예상 결과]
-2. **주어진 조건** [초기 상태], **언제** [액션], **그러면** [예상 결과]
-
-### 경계 사례
-- [경계 조건]일 때 어떤 일이 발생하는가?
-- 시스템은 [오류 시나리오]를 어떻게 처리하는가?
-
-## 요구사항 *(필수)*
-
-### 기능 요구사항
-- **FR-001**: 시스템은 반드시 [구체적 기능, 예: "사용자가 계정을 생성할 수 있도록 해야 함"]
-- **FR-002**: 시스템은 반드시 [구체적 기능, 예: "이메일 주소를 검증해야 함"]
-- **FR-003**: 사용자는 반드시 [핵심 상호작용, 예: "비밀번호를 재설정할 수 있어야 함"]
-- **FR-004**: 시스템은 반드시 [데이터 요구사항, 예: "사용자 선호도를 저장해야 함"]
-- **FR-005**: 시스템은 반드시 [행동, 예: "모든 보안 이벤트를 기록해야 함"]
-
-*불분명한 요구사항 표시 예시:*
-- **FR-006**: 시스템은 반드시 사용자를 [명확화 필요: 인증 방법 미명시 - 이메일/비밀번호, SSO, OAuth?]를 통해 인증해야 함
-- **FR-007**: 시스템은 반드시 사용자 데이터를 [명확화 필요: 보존 기간 미명시] 동안 보존해야 함
-
-### 핵심 엔티티 *(기능이 데이터와 관련된 경우 포함)*
-- **[엔티티 1]**: [무엇을 나타내는지, 구현 없이 핵심 속성]
-- **[엔티티 2]**: [무엇을 나타내는지, 다른 엔티티와의 관계]
+### For AI Generation
+When creating this spec from a user prompt:
+1. **Mark all ambiguities**: Use [NEEDS CLARIFICATION: specific question] for any assumption you'd need to make
+2. **Don't guess**: If the prompt doesn't specify something (e.g., "login system" without auth method), mark it
+3. **Think like a tester**: Every vague requirement should fail the "testable and unambiguous" checklist item
+4. **Common underspecified areas**:
+   - User types and permissions
+   - Data retention/deletion policies  
+   - Performance targets and scale
+   - Error handling behaviors
+   - Integration requirements
+   - Security/compliance needs
 
 ---
 
-## 검토 및 승인 체크리스트
-*게이트: main() 실행 중 자동화된 체크 실행*
+## User Scenarios & Testing *(mandatory)*
 
-### 콘텐츠 품질
-- [ ] 구현 세부사항 없음 (언어, 프레임워크, API)
-- [ ] 사용자 가치와 비즈니스 요구사항에 집중
-- [ ] 비기술 이해관계자를 위해 작성됨
-- [ ] 모든 필수 섹션 완료
+### Primary User Story
+[Describe the main user journey in plain language]
 
-### 요구사항 완성도
-- [ ] [명확화 필요] 마커가 남아있지 않음
-- [ ] 요구사항이 테스트 가능하고 명확함
-- [ ] 성공 기준이 측정 가능함
-- [ ] 범위가 명확히 한정됨
-- [ ] 의존성과 가정사항 식별됨
+### Acceptance Scenarios
+1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+
+### Edge Cases
+- What happens when [boundary condition]?
+- How does system handle [error scenario]?
+
+## Requirements *(mandatory)*
+
+### Functional Requirements
+- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
+- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
+- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
+- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
+- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+
+*Example of marking unclear requirements:*
+- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+
+### Key Entities *(include if feature involves data)*
+- **[Entity 1]**: [What it represents, key attributes without implementation]
+- **[Entity 2]**: [What it represents, relationships to other entities]
 
 ---
 
-## 실행 상태
-*처리 중 main()에 의해 업데이트됨*
+## Review & Acceptance Checklist
+*GATE: Automated checks run during main() execution*
 
-- [ ] 사용자 설명 파싱 완료
-- [ ] 핵심 개념 추출 완료
-- [ ] 모호함 표시 완료
-- [ ] 사용자 시나리오 정의 완료
-- [ ] 요구사항 생성 완료
-- [ ] 엔티티 식별 완료
-- [ ] 검토 체크리스트 통과
+### Content Quality
+- [ ] No implementation details (languages, frameworks, APIs)
+- [ ] Focused on user value and business needs
+- [ ] Written for non-technical stakeholders
+- [ ] All mandatory sections completed
+
+### Requirement Completeness
+- [ ] No [NEEDS CLARIFICATION] markers remain
+- [ ] Requirements are testable and unambiguous  
+- [ ] Success criteria are measurable
+- [ ] Scope is clearly bounded
+- [ ] Dependencies and assumptions identified
+
+---
+
+## Execution Status
+*Updated by main() during processing*
+
+- [ ] User description parsed
+- [ ] Key concepts extracted
+- [ ] Ambiguities marked
+- [ ] User scenarios defined
+- [ ] Requirements generated
+- [ ] Entities identified
+- [ ] Review checklist passed
 
 ---

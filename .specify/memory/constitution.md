@@ -1,82 +1,50 @@
-<!--
-Sync Impact Report:
-- Version change: [CONSTITUTION_VERSION] → 1.0.0
-- Added sections: 테스트 표준, 품질 관리
-- Modified principles: All principles defined with test-driven focus
-- Templates requiring updates: ✅ constitution.md updated
-- Follow-up TODOs: None
--->
+# [PROJECT_NAME] Constitution
+<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
-# SpecKit Korean 헌법
+## Core Principles
 
-## 핵심 원칙
+### [PRINCIPLE_1_NAME]
+<!-- Example: I. Library-First -->
+[PRINCIPLE_1_DESCRIPTION]
+<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
 
-### I. 라이브러리 우선
-모든 기능은 독립적인 라이브러리로 시작합니다. 라이브러리는 자체 포함되고 독립적으로 테스트 가능하며 문서화되어야 합니다. 명확한 목적이 필요하며, 조직용으로만 만든 라이브러리는 금지됩니다.
+### [PRINCIPLE_2_NAME]
+<!-- Example: II. CLI Interface -->
+[PRINCIPLE_2_DESCRIPTION]
+<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
 
-**근거**: 재사용성과 모듈성을 통해 시스템의 유지보수성과 확장성을 보장합니다.
+### [PRINCIPLE_3_NAME]
+<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
+[PRINCIPLE_3_DESCRIPTION]
+<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
 
-### II. CLI 인터페이스
-모든 라이브러리는 CLI를 통해 기능을 제공해야 합니다. 텍스트 입출력 프로토콜을 준수합니다: stdin/args → stdout, errors → stderr. JSON 및 사람이 읽기 쉬운 형식을 지원해야 합니다.
+### [PRINCIPLE_4_NAME]
+<!-- Example: IV. Integration Testing -->
+[PRINCIPLE_4_DESCRIPTION]
+<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
 
-**근거**: 표준화된 인터페이스를 통해 도구 간 상호 운용성과 자동화를 촉진합니다.
+### [PRINCIPLE_5_NAME]
+<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
+[PRINCIPLE_5_DESCRIPTION]
+<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
 
-### III. 테스트 우선 (타협 불가)
-TDD는 필수입니다: 테스트 작성 → 사용자 승인 → 테스트 실패 → 구현. Red-Green-Refactor 사이클을 엄격히 준수해야 합니다. `docs/testing_guidelines.md`의 표준을 동적으로 참조하여 모든 테스트 코드를 작성합니다.
+## [SECTION_2_NAME]
+<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
 
-**근거**: 코드 품질과 신뢰성을 보장하며, 리팩토링 시 안전성을 제공합니다.
+[SECTION_2_CONTENT]
+<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
 
-### IV. 통합 테스트
-통합 테스트가 필요한 영역: 새 라이브러리 계약 테스트, 계약 변경, 서비스 간 통신, 공유 스키마. 단위/통합/E2E 테스트의 3단계 구조를 준수해야 합니다.
+## [SECTION_3_NAME]
+<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
 
-**근거**: 시스템 구성 요소 간의 상호작용이 올바르게 작동함을 보장합니다.
+[SECTION_3_CONTENT]
+<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
 
-### V. 관찰 가능성
-텍스트 I/O로 디버깅 가능성을 확보해야 합니다. 구조화된 로깅이 필수이며, 모든 작업은 추적 가능해야 합니다.
+## Governance
+<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-**근거**: 운영 환경에서의 문제 진단과 성능 모니터링을 가능하게 합니다.
+[GOVERNANCE_RULES]
+<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
 
-## 테스트 표준
-
-### 동적 가이드라인 참조
-모든 테스트 코드 작성 시 `docs/testing_guidelines.md` 문서의 최신 내용을 동적으로 조회하여 다음을 준수해야 합니다:
-
-- **디렉토리 구조**: unit/integration/e2e 3단계 구조
-- **명명 규칙**: `test_{action}_{expected_result}_when_{condition}` 패턴
-- **픽스처 활용**: conftest.py를 통한 테스트 환경 관리
-- **모킹 전략**: 외부 의존성의 적절한 격리
-- **커버리지 목표**: 최소 80% 코드 커버리지 유지
-
-### 테스트 실행 규칙
-- 개발 중: `pytest tests/unit/` (빠른 피드백)
-- PR 전: `pytest tests/unit/ tests/integration/`
-- 배포 전: `pytest tests/` (전체 검증)
-
-## 품질 관리
-
-### 지속적 개선
-- 테스트 가이드라인 문서는 수시로 업데이트 가능
-- 모든 테스트 코드 작성자는 최신 가이드라인 확인 의무
-- 가이드라인 변경 시 기존 테스트 코드의 점진적 마이그레이션
-
-### 성능 및 신뢰성
-- 플레이크(Flaky) 테스트 허용 불가
-- 테스트 실행 시간 모니터링 (`--durations` 활용)
-- CI/CD 파이프라인에서 모든 테스트 단계 통과 필수
-
-## 거버넌스
-
-이 헌법은 모든 다른 관행보다 우선합니다. 수정안은 문서화, 승인, 마이그레이션 계획이 필요합니다.
-
-### 규정 준수
-- 모든 PR/리뷰는 헌법 규정 준수 확인 필수
-- 복잡성 증가는 명확한 정당화 필요
-- 런타임 개발 지침은 `CLAUDE.md` 및 에이전트별 파일 사용
-
-### 수정 절차
-1. 수정안 제안 및 근거 문서화
-2. 팀 검토 및 승인
-3. 영향받는 코드/문서 마이그레이션 계획 수립
-4. 단계적 적용 및 검증
-
-**버전**: 1.0.0 | **비준**: 2025-01-21 | **최종 수정**: 2025-01-21
+**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
+<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->

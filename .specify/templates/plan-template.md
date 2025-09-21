@@ -208,4 +208,4 @@ ios/ or android/
 - [ ] 복잡성 편차 문서화됨
 
 ---
-*헌법 v2.1.1 기반 - `/memory/constitution.md` 참조*
+*헌법 v1.0.0 기반 - `.specify/memory/constitution.md` 참조 (테스트 가이드라인 동적 참조 포함)*

@@ -48,6 +48,7 @@
 - [ ] T003 [P] Configure linting and formatting tools
 
 ## 3.2단계: 테스트 우선 (TDD) ⚠️ 3.3 전에 반드시 완료
+*테스트 작성 시 `docs/testing_guidelines.md`의 최신 표준을 동적으로 참조하여 준수*
 **중요: 이 테스트들은 반드시 작성되어야 하고 구현 전에 반드시 실패해야 함**
 - [ ] T004 [P] Contract test POST /api/users in tests/contract/test_users_post.py
 - [ ] T005 [P] Contract test GET /api/users/{id} in tests/contract/test_users_get.py

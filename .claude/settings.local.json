@@ -4,7 +4,11 @@
       "Bash(mkdir:*)",
       "Bash(env)",
       "Bash(set)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
